@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+  <head>
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FriendO</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+  
+    <script>
+      window.onload = function () {
+        setTimeout(function () {
+          const navbarBrand = document.querySelector(".navbar-brand");
+          navbarBrand.classList.add("visible");
+        }, 4000);
+      };
+      
+      
+      
+    </script>
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md bg-black fixed-top">
+      <a class="navbar-brand" href="#">FriendO</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarContent"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div
+        class="collapse navbar-collapse justify-content-around"
+        id="navbarContent"
+      >
+        <div class="navbar-nav ms-6" style="font-size: 15px">
+          <a class="nav-item nav-link active" href="#" id="homeLink">HOME</a>
+          <a class="nav-item nav-link" href="#" id="whoWeAreLink">WHO WE ARE</a>
+          <a class="nav-item nav-link" href="#" id="discoverLink">DISCOVER</a>
+          <a class="nav-item nav-link" href="#" id="contactLink">CONTACT US</a>
+        </div>
+        
+      </div>
+      <div class="navbar-buttons justify-content-end d-flex">
+<form action="/accounts/login/">
+  <button class="login-btn" style="margin-right:22px;">Login</button>
+</form>
+
+
+<form action="/accounts/signup/">
+  <button class="signup-btn" style="margin-right:30px;">Sign up</button>
+</form>
+      </div>
+    </nav>
+
+    <div class="container-fluid mt-4 pt-5">
+      <h1 class="friendo-text">FriendO</h1>
+      <div class="slide one text-center py-5">
+        <div class="text-wrapper">
+          <div class="static-text">
+            <p>Discover friends with your interests</p>
+            <div
+              class="dynamic-box"
+              style="margin-left: 10px; margin-top: -10px"
+              id="dynamicText"
+            >
+            </div>
+          </div>
+        </div>
+        <script>
+          const roles = [
+            "Art",
+            "Photography",
+            "Music",
+            "Sports",
+            "Gaming",
+            "Technology",
+            "Fitness",
+            "Cooking",
+            "Writing",
+            "Reading",
+            "Fashion",
+            "Movies",
+            "History",
+            "Comedy",
+          ];
+          const dynamicText = document.getElementById("dynamicText");
+
+          let index = 0;
+
+          function updateText() {
+            dynamicText.classList.remove("visible"); 
+            setTimeout(function () {
+              index = (index + 1) % roles.length; 
+              dynamicText.textContent = roles[index];
+              dynamicText.classList.add("visible"); 
+            }, 500); 
+          }
+
+          setInterval(updateText, 1500); 
+        </script>
+      </div>
+      </div>
+      <div class="text-center">
+        <div class="image-marquee mt-lg-5">
+          <marquee scrollamount="10" behavior="scroll" direction="left">
+            <img src="{% static './images/25d8bb352b43cb154e7f0a1b125e2b86.jpg' %}"  alt="Image 1" />
+            <img src="{% static './images/2da4e8736fe37cd4255de32de6603e4d.jpg' %}" alt="Image 2" />
+            <img src="{% static './images/4a3b10e0d9acefc6aab8379d267af48a.jpg' %}" alt="Image 3" />
+            <img src="{% static './images/532d9545bcf6a942e78a9c02665abd91.jpg' %}"  alt="Image 4" />
+            <img src="{% static './images/58477fbdd29d8b0e50bc11545d6e057f.jpg' %}"  alt="Image 5" />
+            <img src="{% static './images/7c5811ca110d3df9bd7470e38c5a4422.jpg' %}"  alt="Image 6" />
+            <img src="{% static './images/906c1a406aadf4a6042ab243f69f152e.jpg' %}"  alt="Image 7" />
+            <img src="{% static './images/99387c44ed89f414033efa118bcd5c17.jpg' %}" alt="Image 8" />
+            <img src="{% static './images/a37cd7ee93abaf5b80b6692de5863abe.jpg' %}"  alt="Image 9" />
+            <img src="{% static './images/cb2f77472393cc0857456f3ea01b7e76.jpg' %}" alt="Image 10" />
+            <img src="{% static './images/d9e69b3533a5dac3ad4622e325a364a8.jpg' %}"  alt="Image 11" />
+            <img src="{% static './images/ef397d56a2e0e53580a40d0b78955d03.jpg' %}"  alt="Image 12" />
+            <img src="{% static './images/dc3ce53ba26ef18447925d4e49dd9809.jpg' %}"  alt="Image 13" />
+            <img src="{% static './images/p11.jpg' %}"  alt="Image 14" />
+          </marquee>
+        </div>
+      
+        <h2 class="large-text mt-lg-5">Building Bonds Beyond the Screen</h2>
+      
+        <div class="image-marquee" style="margin-top: 70px;">
+          <marquee scrollamount="10" behavior="scroll" direction="right">
+            <img src="{% static './images/p9.jpg' %}" alt="Image 1" />
+            <img src="{% static './images/p8.jpg' %}"  alt="Image 2" />
+            <img src="{% static './images/p7.jpg' %}" alt="Image 3" />
+            <img src="{% static './images/p6.jpg' %}" alt="Image 4" />
+            <img src="{% static './images/p5.jpg' %}"  alt="Image 5" />
+            <img src="{% static './images/ef397d56a2e0e53580a40d0b78955d03.jpg' %}" alt="Image 6" />
+            <img src="{% static './images/p1.jpg' %}"  alt="Image 8" />
+            <img src="{% static './images/p10.jpg' %}"  alt="Image 9" />
+            <img src="{% static './images/p11.jpg' %}"  alt="Image 10" />
+            <img src="{% static './images/p12.jpg' %}"  alt="Image 7" />
+            <img src="{% static './images/p13.jpg' %}"  alt="Image 11" />
+            <img src="{% static './images/p14.jpg' %}"  alt="Image 12" />
+            <img src="{% static './images/p15.jpg' %}"  alt="Image 13" />
+            <img src="{% static './images/p16.jpg' %}"  alt="Image 14" />
+          </marquee>
+        </div>
+      </div>
+      <div class="container mt-sm-3">
+        <h2 class="text-center mb-4">Explore More with FriendO</h2>
+        <div class="row text-center">
+        </div>
+      </div>
+      <div class="container-fluid">
+        <section class="hero">
+          <h1>Inspire and Connect</h1>
+<p>Share your world, organize your creativity, and connect with others like never before. Make your clusters public or private and collaborate seamlessly.</p>
+
+        </section>
+  
+        <section class="profile">
+          <div class="profile-header">
+            <img src="{% static './images/p11.jpg' %}"  alt="pp" alt="Profile Picture" class="profile-pic">
+            <div class="profile-info">
+              <h2>Anshum</h2>
+              <p>Content Creater</p>
+              <p>1.2k Followers · 500 Following</p>
+            </div>
+            <div class="action-buttons">
+              <button class="btn1">Follow</button>
+              <button class="btn1">Connect</button>
+              <button class="btn1">Message</button>
+            </div>
+          </div>
+        
+          <div class="profile-gallery">
+            <h3>Photo Gallery</h3>
+            <div class="gallery">
+              <div class="gallery-item"><img src="{% static './images/p16.jpg' %}" alt=""></div>
+              <div class="gallery-item"><img src="{% static './images/p9.jpg' %}" alt=""></div>
+              <div class="gallery-item"><img src="{% static './images/p11.jpg' %}" alt=""></div>
+              <div class="gallery-item"><img src="{% static './images/p2.jpg' %}" alt=""></div>
+              <div class="gallery-item"><img src="{% static './images/p1.jpg' %}" alt=""></div>
+              <div class="gallery-item"><img src="{% static './images/p4.jpg' %}" alt=""></div>
+            </div>
+          </div>
+        </section>
+      </div>  
+      <div class="container-fluid dev" style="background-color: black">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col image-container">
+                  <img src="{% static './images/output-5.jpg' %}" class="d-block w-100 rounded" alt="..." />
+                  <div class="info-text">
+                    <h2 class="fd">Authentic Connections</h2>
+                    <p class="text-justify">A group of diverse people sharing a moment together, symbolizing real-life connections.
+                       close-up of two people exchanging ideas or laughing together.</p>
+                  </div>
+                </div>
+                <div class="col image-container">
+                  <img src="{% static './images/output-2.jpg' %}" class="d-block w-100 rounded" alt="..." />
+                  <div class="info-text">
+                    <h2 class="fd">Engagement Features</h2>
+                    <p class="text-justify">Interact with posts like never before—like, comment, share, and even download the content you love.</p>
+                  </div>
+                </div>
+                <div class="col image-container">
+                  <img src="{% static './images/output-3.jpg' %}" class="d-block w-100 rounded" alt="..." />
+                  <div class="info-text">
+                    <h2 class="fd">Community Engagement</h2>
+                    <p class="text-justify">A diverse group of people interacting and collaborating online in a virtual space.
+                       social media post with likes, comments, and shares visible, showing engagement.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col image-container">
+                  <img src="{% static './images/output-4.jpg' %}" class="d-block w-100 rounded" alt="..." />
+                  <div class="info-text">
+                    <h2 class="fd">Innovative Technology</h2>
+                    <p class="text-justify">A person using a modern digital device (phone, laptop, tablet) to access social media.
+                      futuristic representation of how social media connects people from different parts of the world.</p>
+                  </div>
+                </div>
+                <div class="col image-container">
+                  <img src="{% static './images/output-1.jpg' %}" class="d-block w-100 rounded" alt="..." />
+                  <div class="info-text">
+                    <h2 class="fd">Enhanced Communication</h2>
+                    <p class="text-justify">Stay connected with your people through text chats and take your conversations to the next level with voice chats.</p>
+                  </div>
+                </div>
+                <div class="col image-container">
+                  <img src="{% static './images/99387c44ed89f414033efa118bcd5c17.jpg' %}"  class="d-block w-100 rounded" alt="..." />
+                  <div class="info-text">
+                    <h2 class="fd">Genuine Moments</h2>
+                    <p class="text-justify">Someone capturing a personal moment with their phone (e.g., nature, a milestone, or travel).</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+           
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      
+      <section>
+        <div class="card-container">
+       
+          <div class="card">
+            <h2 class="card-title">Unlimited Scrolling</h2>
+            <p class="card-text">Discover endless content without interruptions. Dive into a seamless feed where the inspiration never stops. At the heart of unlimited scrolling is a dynamic feed that updates as you scroll. Instead of the traditional, static pagination system, users can scroll smoothly through the content, and new posts automatically appear as they reach the bottom of the screen. There are no waiting periods or “load more” buttons, allowing the user to remain engaged without interruption.</p>  </div>
+          <div class="card">
+            <h3 class="card-title">The Follower-Following and Connect Functionality</h3>
+            <p class="card-text">Build Your Network, Create Meaningful Connections, and Share Your Journey!
+
+              Our app's Follower-Following and Connect functionality is designed to help you create authentic relationships and grow your social network effortlessly. Whether you're looking to keep up with your favorite people, engage with like-minded individuals, or expand your influence, we've got you covered.</p>
+          </div>
+          <div class="card ">
+            <h3 class="card-title">Engagement Features: Interact Like Never Before</h3>
+            <p class="card-text">Get ready to take your social experience to the next level! Our app offers a variety of Engagement Features designed to keep you connected, informed, and involved in the content you love. With easy-to-use tools for liking, commenting, sharing, and downloading posts, you can engage with your network in meaningful ways.</p>       </div>
+          
+          <div class="card">
+            <h3 class="card-title">Our Mission</h3>
+            <p class="card-text">Our mission is simple yet powerful: to create a platform where every interaction adds value. We believe social media should be more than just a digital space—it should be a community where users form real connections, share authentic moments, and engage in meaningful conversations.
+              At <b>FriendO</b>, we strive to redefine how people connect and communicate online. Through innovative features and a user-first approach, we aim to make every experience on our platform enriching, enjoyable, and impactful.</p>         </div>
+          <div class="card">
+            <h3 class="card-title">Join the Revolution</h3>
+            <p class="card-text">Be part of a movement that values authenticity, connection, and creativity. Together, we’re shapin-titleg the future of social media—one genuine interaction at a time.</p>
+          </div>
+        </div>
+      </section>
+      <div class="promo-container mt-5 mb-5">
+        <div class="promo-section">
+          <div class="promo-content">
+            <h2>Start Your Journey</h2>
+            <p>We welcome you to join us.</p>
+            <form action="/accounts/signup/">
+              <button class="letsgo-btn mt-1"><span>Sign Up</span></button>
+            </form>
+          </div>
+          <div class="promo-images">
+            <img src="{% static './images/laptop.jpg' %}" alt="Laptop View" class="laptop-image" />
+            <img src="{% static './images/phone.jpg' %}"  alt="Mobile View" class="mobile-image" />
+          </div>
+        </div>
+      </div>
+      </div>
+      <footer class="footer">
+        <h1>FRIENDO</h1>
+        <div class="subtitle">FriendO is the home you've been searching for.</div>
+        <div class="links">
+          <div>
+            <strong class="c">USEFUL</strong>
+            <br>
+            <a href="#">About</a>
+            <br>
+            <a href="#">Contact</a>
+            <br>
+            <a href="#">Help & Support</a>
+            <br>
+            <a href="#">Our Team</a>
+          </div>
+          <div>
+            <strong class="c">LEGAL</strong>
+            <br>
+            <a href="#">Privacy Policy</a>
+            <br>
+            <a href="#">Terms & Conditions</a>
+            <br>
+            <a href="#">Our Services</a>
+            <br>
+            <a href="#">Feedback</a>
+          </div>
+          <div>
+            <strong class="c">UPDATES</strong>
+            <br>
+            <a href="#">Twitter</a>
+            <br>
+            <a href="#">Instagram</a>
+            <br>
+            <a href="#">Facebook</a>
+            <br>
+            <a href="#">pin-titletrest</a>
+          </div>
+        </div>
+      </footer>
+  </body>
+</html>

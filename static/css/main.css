@@ -1,0 +1,328 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 80px;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  padding: 20px 0;
+  height: 100vh;
+  position: fixed;
+  transition: all 0.3s ease;
+}
+
+.menu {
+  list-style: none;
+  display: grid;
+  flex-direction: column;
+  align-items: center; /* Ensures all icons are centered */
+  gap: 59px;
+  margin-top: 70px; /* Adjusts the gap between the items */
+}
+
+.menu-item {
+  font-size: 24px;
+  cursor: pointer;
+  color: #000000;
+  text-align: center;
+}
+
+.menu-item:hover {
+  color: #a8a7a7;
+}
+
+.settings {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  color: #333;
+  cursor: pointer;
+}
+
+.settings:hover {
+  color: #797a7a;
+}
+
+/* Header */
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: calc(100% - 80px);
+  margin-left: 80px;
+  z-index: 1000;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  flex-grow: 1;
+  margin: 0 20px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px 0 0 20px;
+  outline: none;
+}
+
+.search-bar i {
+  padding: 10px;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #000000;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 80px; /* For larger screens with sidebar */
+  padding: 20px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.pins {
+  column-count: 4;
+  column-gap: 20px;
+  padding: 0;
+  margin: 0 auto; /* Center-align the pins container */
+}
+
+.pin {
+  margin-bottom: 20px;
+  break-inside: avoid;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pin img,
+.pin video {
+  width: 100%;
+  display: block;
+}
+
+
+.search-content {
+  display: flex;
+  margin-top: 13px;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pins {
+    column-count: 3;
+  }
+
+  .header {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .sidebar {
+    flex-direction: row; /* Display items in a row */
+    justify-content: space-around; /* Space out items evenly */
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    border-right: none;
+    border-top: 1px solid #ddd;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  .menu {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0; /* Remove gaps between items */
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 70px; /* Equal spacing between icons */
+  }
+
+  .menu-item {
+    font-size: 20px;
+    text-align: center;
+    margin: 0; /* Removes extra spacing */
+  }
+
+  .settings {
+    position: static;
+  }
+
+  .main-content {
+    margin-left: 0; /* Remove left margin */
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .pins {
+    column-count: 2;
+  }
+
+  .header {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .sidebar {
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    border-right: none;
+    border-top: 1px solid #ddd;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  .menu {
+    flex-direction: row; /* Ensure menu items are in a row */
+    gap: 0; /* Remove gaps between items */
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 70px; /* Equal spacing between icons */
+  }
+
+  .menu-item {
+    font-size: 20px;
+    text-align: center;
+    margin: 0; /* Removes extra spacing */
+  }
+
+  
+
+  .main-content {
+    margin-left: 0;
+    padding: 10px; /* Adjusted padding for small screens */
+    padding-bottom: 80px; /* Leave space for the bottom sidebar */
+  }
+}
+
+@media (max-height: 480px) {
+  .sidebar{
+    justify-content:center;
+    align-items:center;
+    display : grid;
+    grid-template-rows : repeat(6,1fr);
+    gap : 10 ;
+  }
+  .menu{
+    justify-content:center;
+    align-items:center;
+    display : grid;
+    grid-template-rows : repeat(6,1fr);
+    gap : 10px ;
+  }
+}
+
+/* Sidebar Styling */
+.search-sidebar {
+  position: fixed;
+  top: 0;
+   /* Initially hidden */
+  width: 500px;
+  height: 100%;
+  background: #e0e0e0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: left 0.3s ease; 
+  /* Smooth slide-in/out */
+}
+
+.search-sidebar.active {
+  left: 0; /* Slide in */
+}
+
+.search-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.search-input {
+  padding: 10px 20px;
+}
+
+.search-input input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.search-results {
+  list-style: none;
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.search-results li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.search-results li:hover {
+  background-color: #f0f0f0;
+}

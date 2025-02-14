@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user.username }}'s Profile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f8f9fa;
+        }
+
+        .profile-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #007bff;
+            object-fit: cover;
+        }
+
+        .username {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .bio {
+            font-size: 14px;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .info {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .stat p {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .activity-feed {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .activity-item {
+            font-size: 14px;
+            color: #444;
+            background: #f1f1f1;
+            padding: 8px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <img src="{{ user.profile.image.url }}" alt="Profile Picture" class="profile-pic">
+        <h2 class="username">@{{ user.username }}</h2>
+        <p class="bio">{{ user.profile.bio|default:"No bio available" }}</p>
+        <p class="info">Email: {{ user.email }}</p>
+        <p class="info">Joined: {{ user.date_joined }}</p>
+
+        <div class="stats">
+            <div class="stat">
+                <h3>250</h3>
+                <p>Posts</p>
+            </div>
+            <div class="stat">
+                <h3>1.2k</h3>
+                <p>Followers</p>
+            </div>
+            <div class="stat">
+                <h3>180</h3>
+                <p>Following</p>
+            </div>
+        </div>
+
+        <div class="activity-feed">
+            <h3>Recent Activity</h3>
+            <div class="activity-item">💬 Liked a post</div>
+            <div class="activity-item">📸 Uploaded a new photo</div>
+            <div class="activity-item">👥 Followed @john_doe</div>
+        </div>
+    </div>
+</body>
+</html>

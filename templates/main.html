@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FriendO</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="icon" href="{% static './images/logo.jpeg' %}">
+    <script>
+
+      const searchIcon = document.querySelector('.fa-search'); 
+      const searchSidebar = document.getElementById('search-sidebar');
+      const closeSidebar = document.getElementById('close-sidebar');
+    
+      
+      searchIcon.addEventListener('click', () => {
+        searchSidebar.classList.add('active');
+      });
+    
+     
+      closeSidebar.addEventListener('click', () => {
+        searchSidebar.classList.remove('active');
+      });
+      function openSearchSidebar() {
+        document.getElementById('searchSidebar').style.display = 'block';
+      }
+      
+      function closeSearchSidebar() {
+        document.getElementById('searchSidebar').style.display = 'none';
+      }
+    </script>
+    
+  </head>
+  <body>
+ 
+
+    <header class="header">
+      <div class="header-content">
+        <div class="brand">
+          <img src="{% static './images/logo.jpeg' %}" alt="logo" style="width: 70px;">
+        </div>
+        
+        <div class="search-bar">
+          <input
+            type="text"
+            placeholder="search anything you want..."
+          />
+          <i class="fas fa-search"></i>
+        </div>
+        <div class="profile">
+          <a href="{% url 'user_profile' username=request.user.username %}">
+              {% if profile.image %}
+                  <img src="{{ profile.image.url }}" alt="Profile Picture" width="50px" height="50px" style="border-radius: 50%;">
+              {% else %}
+                  <div style="width:50px; height:50px; border-radius:50%; background:#ddd; display:flex; align-items:center; justify-content:center; font-size:20px;">
+                      {{ request.user.username|first|upper }}
+                  </div>
+              {% endif %}
+          </a>
+      </div>
+      
+      
+      </div>
+    </header>
+
+    <div class="container">
+   
+      <nav class="sidebar">
+        <ul class="menu">
+         
+          <li class="menu-item">
+            <abbr title="Home"><i class="fas fa-home"></i></abbr>
+          </li>
+          <li class="menu-item">
+            <abbr title="Search"><i class="fas fa-search" onclick="openSearchSidebar()" ></i></abbr>
+          </li>
+          <li class="menu-item">
+            <abbr title="Create"><i class="fa-solid fa-plus"></i></i></abbr>
+          </li>
+          <li class="menu-item">
+            <abbr title="Messages"><i class="fas fa-envelope"></i></abbr>
+          </li>
+          <li class="menu-item">
+            <abbr title="Friends"><i class="fa-solid fa-user-group"></i></abbr>
+          </li>
+          <li class="menu-item settings">
+            <abbr title="Settings"><i class="fas fa-cog"></i></abbr>
+          </li>
+        </ul>
+      </nav>
+   
+<div class="search-sidebar" id="searchSidebar" style="display: none;">
+  <div class="search-content">
+      <h1>Search</h1>
+      <button type="button" onclick="closeSearchSidebar()" style="font-size:40px;padding:0px 10px;margin-left:345px">&times;</button>
+    </div>
+ 
+      <form method="GET" action="{% url 'search_user' %}">
+          <input
+              type="text"
+              name="q"
+              placeholder="Search for Friends..."
+              style="width:90%;height:50px;margin-left:10px;border-radius:20px;margin-top:20px;font-size:20px"
+          />
+          <button type="submit" style="display: none;">Search</button>
+      </form>
+  
+</div>
+
+
+
+      
+      <main class="main-content">
+        <div class="pins">
+          
+          <div class="pin">
+            <img
+              src="{% static './images/25d8bb352b43cb154e7f0a1b125e2b86.jpg' %}"
+              alt="Beautiful Landscape"
+            />
+            
+          </div>
+          <div class="pin">
+            <video autoplay muted>
+              <source
+                src="https://www.w3schools.com/html/mov_bbb.mp4"
+                type="video/mp4"
+              />
+            </video>
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/2da4e8736fe37cd4255de32de6603e4d.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/4a3b10e0d9acefc6aab8379d267af48a.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/532d9545bcf6a942e78a9c02665abd91.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/58477fbdd29d8b0e50bc11545d6e057f.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/7c5811ca110d3df9bd7470e38c5a4422.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/906c1a406aadf4a6042ab243f69f152e.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/99387c44ed89f414033efa118bcd5c17.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/a37cd7ee93abaf5b80b6692de5863abe.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/cb2f77472393cc0857456f3ea01b7e76.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/d9e69b3533a5dac3ad4622e325a364a8.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/dc3ce53ba26ef18447925d4e49dd9809.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/ef397d56a2e0e53580a40d0b78955d03.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/output-1.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/output-2.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/output-3.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/output-4.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/output-5.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/output.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/p1.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/p2.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/p3.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/p4.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/p5.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/p6.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/p7.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/p8.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/p9.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/p10.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/p11.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/p12.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/p13.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/p14.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/p15.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            <div class="pin">
+              <img
+                src="{% static './images/p16.jpg' %}"
+                alt="Beautiful Landscape"
+              />
+              
+            </div>
+            </div>
+            </div>
+          
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
