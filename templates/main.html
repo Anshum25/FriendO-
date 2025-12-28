@@ -54,8 +54,8 @@
         </div>
         <div class="profile">
           <a href="{% url 'user_profile' username=request.user.username %}">
-              {% if profile.image %}
-                  <img src="{{ profile.image.url }}" alt="Profile Picture" width="50px" height="50px" style="border-radius: 50%;">
+              {% if profile.profile_picture %}
+                  <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" width="50px" height="50px" style="border-radius: 50%;">
               {% else %}
                   <div style="width:50px; height:50px; border-radius:50%; background:#ddd; display:flex; align-items:center; justify-content:center; font-size:20px;">
                       {{ request.user.username|first|upper }}
